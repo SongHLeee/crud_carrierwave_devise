@@ -1,0 +1,10 @@
+<h1>게시글 번호: <%= @showBoard.id %></h1>
+
+<hr>
+    글번호: <%= @showBoard.id %><br>
+    제목 : <%= @showBoard.title %><br>
+    작성자 : <%= @showBoard.editor %><br>
+    내용 : <%= @showBoard.content %><br>
+    <a href="/update_view/<%= @showBoard.id %>">[수정]</a><a href="/delete/<%= @showBoard.id%>">[삭제]</a>
+    <br>
+    <hr>

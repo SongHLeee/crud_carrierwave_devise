@@ -1,0 +1,11 @@
+<h1>게시판</h1>
+
+<hr>
+<% @my_board.each do |q| %>
+    
+    글번호: <%= q.id %><br>
+    <a href = "/show/<%= q.id %>">제목 : <%= q.title %></a><br>
+    작성자 : <%= q.editor %><br>
+    <br>
+    <hr>
+<% end %>
