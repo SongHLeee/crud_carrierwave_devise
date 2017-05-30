@@ -9,9 +9,9 @@ class PostController < ApplicationController
   
   def create
     makeBoard = Board.new
-    makeBoard.title = params[:input_title]
-    makeBoard.editor = params[:input_editor]
-    makeBoard.content = params[:input_content]
+    makeBoard.post_title = params[:input_post_title]
+    makeBoard.post_editor = params[:input_post_editor]
+    makeBoard.post_content = params[:input_post_content]
     makeBoard.save
     
     redirect_to '/my_board'
@@ -27,9 +27,9 @@ class PostController < ApplicationController
   
   def update
     updBoard = Board.find(params[:id])
-    updBoard.title = params[:input_title]
-    updBoard.editor = params[:input_editor]
-    updBoard.content = params[:input_content]
+    updBoard.post_title = params[:input_post_title]
+    updBoard.post_editor = params[:input_post_editor]
+    updBoard.post_content = params[:input_post_content]
     updBoard.save
     
     redirect_to '/my_board'
@@ -41,6 +41,21 @@ class PostController < ApplicationController
     redirect_to '/my_board'
   
   end
-  
+  def reply_write
+    new_reply = Rely.new
+    new_reply.editor = params[:inputEditor]
+    new_reply.content = params[:inputContent]
+    new_reply.board_id = params[:reply_id]
+
+    new_reply.save
+    
+    redirect_to :back
+  end
+  def reply_destroy
+    @oneReply = Rely.find(params[:id])
+    @oneReply.destroy
+    
+    redirect_to :back
+  end
   
 end

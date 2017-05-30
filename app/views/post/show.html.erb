@@ -2,9 +2,30 @@
 
 <hr>
     글번호: <%= @showBoard.id %><br>
-    제목 : <%= @showBoard.title %><br>
-    작성자 : <%= @showBoard.editor %><br>
-    내용 : <%= @showBoard.content %><br>
+    제목 : <%= @showBoard.post_title %><br>
+    작성자 : <%= @showBoard.post_editor %><br>
+    내용 : <%= @showBoard.post_content %><br>
     <a href="/update_view/<%= @showBoard.id %>">[수정]</a><a href="/delete/<%= @showBoard.id%>">[삭제]</a>
     <br>
     <hr>
+    <% @showBoard.relies.each do |f|%>
+    댓글작성자: <%= f.editor %><br>
+    댓글내용: <%= f.content %><br>
+    <a href='/reply_destroy/<%=f.id%>'>[댓글삭제]</a>
+    <br>
+    <%end%>
+    
+    <form action="/reply_write" method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+            <input type="hidden" name="reply_id" value="<%=@showBoard.id%>">
+          <input name="inputEditor" id="name" type="text" class="validate">
+          <label for="name" data-error="wrong" data-success="작성완료">댓글작성자</label>
+        </div>
+        <div class="input-field col s12">
+          <input name="inputContent" id="title" type="text" class="validate">
+          <label for="title" data-error="wrong" data-success="작성완료">댓글내용</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">댓글작성</button>
+      </div>
+    </form>

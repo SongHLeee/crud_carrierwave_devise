@@ -4,8 +4,8 @@
 <% @my_board.each do |q| %>
     
     글번호: <%= q.id %><br>
-    <a href = "/show/<%= q.id %>">제목 : <%= q.title %></a><br>
-    작성자 : <%= q.editor %><br>
+    <a href = "/show/<%= q.id %>">제목 : <%= q.post_title %></a><br>
+    작성자 : <%= q.post_editor %><br>
     <br>
     <hr>
 <% end %>

@@ -2,9 +2,9 @@
 
 <h3>수정하기</h3>
 <form action="/update/<%= @updBoard.id %>" method="POST">
-    제목 : <input type="text" name="input_title" value="<%=@updBoard.title%>"><br>
-    작성자 : <input type="text" name="input_editor" value="<%=@updBoard.editor%>"><br>
-    내용 : <input type="text" name="input_content" value="<%=@updBoard.content%>"><br>
+    제목 : <input type="text" name="input_title" value="<%=@updBoard.post_title%>"><br>
+    작성자 : <input type="text" name="input_editor" value="<%=@updBoard.post_editor%>"><br>
+    내용 : <input type="text" name="input_content" value="<%=@updBoard.post_content%>"><br>
     <input type = "submit" value="저장"><br>
     <hr>
 </form>
