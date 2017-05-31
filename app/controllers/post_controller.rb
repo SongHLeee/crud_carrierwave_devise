@@ -12,6 +12,12 @@ class PostController < ApplicationController
     makeBoard.post_title = params[:input_post_title]
     makeBoard.post_editor = params[:input_post_editor]
     makeBoard.post_content = params[:input_post_content]
+   
+    uploader = ImgpostUploader.new
+    
+    uploader.store!(params[:input_img])
+    makeBoard.image_url = uploader
+    
     makeBoard.save
     
     redirect_to '/my_board'
@@ -57,5 +63,5 @@ class PostController < ApplicationController
     
     redirect_to :back
   end
-  
+
 end

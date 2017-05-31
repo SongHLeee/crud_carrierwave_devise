@@ -4,6 +4,8 @@ class CreateBoards < ActiveRecord::Migration
       t.string :post_title
       t.string :post_editor
       t.text :post_content
+      t.integer :user_id
+      t.string :image_url
 
       t.timestamps null: false
     end
